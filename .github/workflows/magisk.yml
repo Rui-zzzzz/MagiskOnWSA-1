@@ -19,8 +19,8 @@ on:
         options:
         - retail
         - release preview
-        - insider slow
-        - insider fast
+        - insier slow
+        - insier fast
       magisk_apk:
         description: "Magisk version"
         required: true
@@ -30,7 +30,7 @@ on:
         - stable
         - beta
         - canary
-        - debug
+        - ebug
       gapps_variant:
         description: "Variants of gapps"
         required: true
@@ -102,10 +102,6 @@ jobs:
         run: |
           sudo tar -cf /tmp/repo.tar .
           sudo rm -rf *
-      - name: Ensure GDM service is active
-        run: |
-          sudo systemctl start gdm.service
-          sudo systemctl reload gdm.service
       - name: Dependencies
         run: |
           sudo apt-get update && sudo apt-get install setools lzip wine winetricks patchelf
